@@ -55,14 +55,12 @@ const handlestudentFeedbackSubmit = async () => {
     return;
   }
 
-  const userId = localStorage.getItem('userid'); // Assuming the user ID is stored in local storage
   const canteenId = _id; // Canteen ID from URL params
 
   try {
     await axios.post(`${process.env.REACT_APP_BASE_URL}/submitFeedback`, {
       message: studentfeedback,
-      canteenId,
-      userId
+      canteenId
     }, {
       headers: {
         'Content-Type': 'application/json'

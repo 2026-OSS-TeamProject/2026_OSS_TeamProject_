@@ -1,40 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo2.png";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { IoClose  } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { jwtDecode } from "jwt-decode"; // Corrected import
 import { ThemeContext } from "../themeContext";
-import { useAuth } from "../authContext";
 
 const Navbar = () => {
-  const { logout } = useAuth();
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [isOpen, setIsOpen] = useState(false);
   const { scrollYProgress } = useScroll();
-  const token = localStorage.getItem("token");
-  const canteenId = localStorage.getItem("canteenId");
-
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    if (token) {
-      try {
-        const decodedToken = jwtDecode(token);
-        if (decodedToken.accountType === "Canteen") {
-          // setCanteenId(decodedToken.id);
-        }
-      } catch (error) {
-        console.error("Invalid token", error);
-      }
-    }
-  }, []);
-
-  const removeToken = () => {
-    localStorage.removeItem("usertoken");
-    localStorage.removeItem("token");
-    localStorage.removeItem("canteenId");
-  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -57,15 +32,9 @@ const Navbar = () => {
 
             <div className="hidden md:block">
               <div className="ml-16 flex gap-4 items-baseline space-x-2">
-                {token ? (
-                  <NavItem to={`/section/${canteenId}`} onClick={toggleMenu}>
-                    <IconCanteen />  My <span></span> Canteen
-                  </NavItem>
-                ) : (
-                  <NavItem to="/home" onClick={toggleMenu}>
-                    <IconHome /> Home
-                  </NavItem>
-                )}
+                <NavItem to="/home" onClick={toggleMenu}>
+                  <IconHome /> Home
+                </NavItem>
                 <NavItem to="/about" onClick={toggleMenu}>
                   <IconAbout /> About
                 </NavItem>
@@ -89,18 +58,6 @@ const Navbar = () => {
               >
                 {theme === "dark" ? "🌞" : "🌙"}
               </button>
-              <Link to="/">
-                <button
-                  onClick={logout}
-                  className={`py-1 px-2 w-full h-auto text-l relative z-0 rounded-lg transition-all duration-200 hover:scale-110 ${
-                    theme === "dark"
-                      ? "bg-white text-black"
-                      : "bg-green-400 hover:bg-green-600 hover:shadow-green text-white"
-                  }`}
-                >
-                  Log out
-                </button>
-              </Link>
             </div>
 
             <div className="-mr-2 flex md:hidden">
@@ -152,22 +109,6 @@ const Navbar = () => {
                 <MobileNavItem to="/contributors" onClick={toggleMenu}>
                   Contributors
                 </MobileNavItem>
-                {canteenId && (
-                  <MobileNavItem to={`/section/${canteenId}`} onClick={toggleMenu}>
-                    My Canteen
-                  </MobileNavItem>
-                )}
-                <MobileNavItem to="/" onClick={() => { logout(); toggleMenu(); }}>
-                  <button
-                    className={`rounded transition duration-300 ease-in-out transform hover:scale-105 ${
-                      theme === "dark"
-                        ? "bg-white text-black"
-                        : "bg-green-500 hover:bg-green-700 text-white py-1 px-2"
-                    }`}
-                  >
-                    Log out
-                  </button>
-                </MobileNavItem>
               </div>
             </motion.div>
           )}
@@ -203,6 +144,5 @@ const IconHome = () => <span>🏠</span>;
 const IconAbout = () => <span>ℹ️</span>;
 const IconNews = () => <span>📰</span>;
 const IconRateUs = () => <span>⭐</span>;
-const IconCanteen = () => <span>🥗</span>;
 
 export default Navbar;

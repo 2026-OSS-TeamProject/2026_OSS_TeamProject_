@@ -6,7 +6,6 @@ import Loader from "../components/Loader/Loader";
 import "aos/dist/aos.css";
 import Footer from "../components/Footer";
 import FloatBtn from "../components/FloatBtn/FloatBtn";
-import { useAuth } from "../authContext";
 import { useNavigate } from "react-router-dom";
 
 const About = () => {
