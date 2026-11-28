@@ -1,0 +1,381 @@
+.home {
+  --ink: #202b2a;
+  --muted: #546561;
+  --accent: #0f766e;
+  --line: #dfe8e5;
+  --tint: #e4f3f0;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 100dvh;
+  background: #f4f7f6;
+  color: var(--ink);
+  font: 15px/1.5 "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+
+.home *, .home *::before, .home *::after {
+  box-sizing: border-box;
+}
+
+.home h1, .home p {
+  margin: 0;
+}
+
+.home button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.home button:focus-visible, .search:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 28px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  font-weight: 750;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 360px);
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #f7f9f8;
+  color: var(--muted);
+}
+
+.search svg {
+  flex: none;
+  font-size: 20px;
+}
+
+.search input {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+}
+
+.search input::placeholder {
+  color: var(--muted);
+}
+
+.content {
+  width: min(100%, 980px);
+  margin: auto;
+  padding: 30px 28px;
+}
+
+.panel {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 24px #173d3310;
+}
+
+.panelHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.panelHeader h1 {
+  font-size: clamp(23px, 3.4vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.panelHeader p {
+  margin-top: 5px;
+  color: var(--muted);
+}
+
+.panelIcon {
+  display: grid;
+  flex: 0 0 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--tint);
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.home .writeReview {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.panelHeader .writeReview {
+  margin-inline-start: auto;
+}
+
+.home .writeReview:hover {
+  background: #0b655e;
+}
+
+.writeReview:active {
+  transform: translateY(1px);
+}
+
+.writeReview svg {
+  font-size: 17px;
+}
+
+.reviewDialog {
+  width: min(calc(100% - 28px), 420px);
+  max-height: calc(100dvh - 28px);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 14px 45px #173d3326;
+}
+
+.reviewDialog::backdrop {
+  background: #162e2a75;
+}
+
+.reviewDialog h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+.reviewForm, .reviewForm label {
+  display: grid;
+  gap: 12px;
+}
+
+.reviewForm label {
+  gap: 5px;
+  font-weight: 700;
+}
+
+.reviewForm :is(input, select, textarea) {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbfa;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+}
+.reviewForm textarea {
+  resize: vertical;
+}
+
+.reviewForm input::file-selector-button {
+  margin-inline-end: 8px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--tint);
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+.reviewForm :is(input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.reviewNotice {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.reviewButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.reviewButtons button[type="button"] {
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+}
+
+
+.date, .meals {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.date {
+  justify-content: space-between;
+  padding: 3px 5px;
+  border: 1px solid var(--line);
+  background: #f9fbfa;
+}
+
+.date time, .hours {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.date time {
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.date time svg {
+  color: var(--accent);
+}
+
+.date button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 21px;
+}
+
+.date button:hover {
+  background: var(--tint);
+  color: var(--accent);
+}
+
+.meals {
+  gap: 4px;
+  margin-top: 12px;
+  padding: 4px;
+  background: #edf3f1;
+}
+
+.meals button {
+  display: flex;
+  flex: 1;
+  min-height: 39px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.meals button[aria-pressed="true"] {
+  background: #fff;
+  color: var(--accent);
+  box-shadow: 0 2px 7px #173d3317;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cafeterias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cafeterias button {
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 100vw;
+  background: #fff;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cafeterias button[aria-pressed="true"] {
+  border-color: var(--tint);
+  background: var(--tint);
+  color: var(--accent);
+}
+
+.hours {
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    justify-content: flex-start;
+    padding: 12px 14px;
+  }
+
+  .topbar > span {
+    display: none;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .content {
+    padding: 14px;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+
+  .panelHeader {
+    gap: 8px;
+  }
+
+  .panelHeader p {
+    font-size: 12px;
+  }
+
+  .panelHeader .writeReview {
+    min-height: 36px;
+    padding-inline: 9px;
+    font-size: 12px;
+  }
+
+  .panelIcon {
+    flex-basis: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
