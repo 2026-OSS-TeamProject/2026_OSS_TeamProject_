@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../pages/CampusHome.module.css";
 
-export default function CampusReviewForm({ dialogRef, cafeterias }) {
+export default function CampusReviewForm({ dialogRef, menu }) {
   const [showPreviewMessage, setShowPreviewMessage] = useState(false);
 
   function hidePreviewMessage() {
@@ -24,16 +24,11 @@ export default function CampusReviewForm({ dialogRef, cafeterias }) {
       <form className={styles.reviewForm} onInput={hidePreviewMessage} onSubmit={handleSubmit}>
         <label>
           식당
-          <select name="cafeteria" defaultValue="" required>
-            <option value="" disabled>식당을 선택해 주세요</option>
-            {cafeterias.map((name) => (
-              <option key={name} value={name}>{name}</option>
-            ))}
-          </select>
+          <input name="cafeteria" type="text" value={menu.cafeteria} readOnly />
         </label>
         <label>
           메뉴 이름
-          <input name="menu" type="text" placeholder="메뉴 이름을 입력해 주세요" required />
+          <input name="menu" type="text" value={menu.name} readOnly />
         </label>
         <label>
           별점
