@@ -83,6 +83,16 @@
   color: var(--accent);
 }
 
+.menuLink {
+  text-decoration: none;
+}
+
+.menuLink:hover,
+.menuLink:focus-visible {
+  background: #e4f3f0;
+  color: var(--accent);
+}
+
 .notice {
   display: flex;
   align-items: flex-start;
