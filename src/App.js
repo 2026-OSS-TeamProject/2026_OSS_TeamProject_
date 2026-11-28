@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
+import CampusRanking from "./pages/CampusRanking";
 import MenuPage from "./pages/MenuPage";
 import About from "./pages/About";
 import Rateus from "./pages/Rateus";
@@ -49,6 +50,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/campus/ranking" element={<CampusRanking />} />
           <Route path="/contributors" element={<Contributors/>}/>
 
           <Route

@@ -83,16 +83,12 @@
   color: var(--accent);
 }
 
-.menuButton {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  font-family: inherit;
-  cursor: pointer;
+.menuLink {
+  text-decoration: none;
 }
 
-.menuButton:hover,
-.menuButton:focus-visible {
+.menuLink:hover,
+.menuLink:focus-visible {
   background: #e4f3f0;
   color: var(--accent);
 }
