@@ -83,6 +83,20 @@
   color: var(--accent);
 }
 
+.menuButton {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.menuButton:hover,
+.menuButton:focus-visible {
+  background: #e4f3f0;
+  color: var(--accent);
+}
+
 .notice {
   display: flex;
   align-items: flex-start;

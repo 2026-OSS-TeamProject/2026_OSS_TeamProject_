@@ -10,7 +10,7 @@ import styles from "./CampusSidebar.module.css";
 
 const menuItems = [
   { label: "홈", Icon: LuHome, current: true },
-  { label: "리뷰 랭킹", Icon: LuTrophy },
+  { label: "리뷰 랭킹", Icon: LuTrophy, onClick: () => window.alert("구현해야함") },
   { label: "내 리뷰", Icon: LuMessageSquare },
 ];
 
@@ -28,12 +28,21 @@ export default function CampusSidebar() {
       </div>
 
       <ul className={styles.menu} aria-label="메뉴 미리보기">
-        {menuItems.map(({ label, Icon, current }) => (
-          <li className={styles.menuItem} key={label} aria-current={current ? "page" : undefined}>
-            <Icon aria-hidden="true" />
-            {label}
-          </li>
-        ))}
+        {menuItems.map(({ label, Icon, current, onClick }) => {
+          const content = <><Icon aria-hidden="true" />{label}</>;
+
+          return onClick ? (
+            <li key={label}>
+              <button type="button" className={`${styles.menuItem} ${styles.menuButton}`} onClick={onClick}>
+                {content}
+              </button>
+            </li>
+          ) : (
+            <li className={styles.menuItem} key={label} aria-current={current ? "page" : undefined}>
+              {content}
+            </li>
+          );
+        })}
       </ul>
 
       
